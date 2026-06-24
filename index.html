@@ -42,16 +42,28 @@ button{
 <h2 id="premio" style="opacity:0; transition:1s; color:gold;"></h2>
 
 <script>
+<script>
+
+const premios = [
+"🗡️ ¡Has obtenido la Espada Maestra!",
+"🏹 ¡Has obtenido el Arco del Héroe!",
+"🛡️ ¡Has obtenido el Escudo Hyliano!",
+"💎 ¡Has encontrado un Rubí Rojo!",
+"🧪 ¡Has obtenido una Poción!"
+];
+
 function abrirCofre(){
 
     let premio = document.getElementById("premio");
 
-    premio.innerHTML = "🗡️ ¡Has obtenido la Espada Maestra!";
+    let numero = Math.floor(Math.random() * premios.length);
+
+    premio.innerHTML = premios[numero];
 
     premio.style.opacity = "1";
 
 }
-</script>
 
+</script>
 </body>
 </html>
