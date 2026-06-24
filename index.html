@@ -67,20 +67,43 @@ button{
 
 <h2 id="premio" style="opacity:0; transition:1s; color:gold;"></h2>
 <h3 id="rareza"></h3>
+<h2 id="codigo" style="color:#00ff88;"></h2>
+<h3 id="contador" style="color:#ffcc00;"></h3>
 
 <script>
 
+<script>
+
+let intervalo;
+
 function abrirCofre(){
+
+    let ultimoUso = localStorage.getItem("ultimoUso");
+
+    if(ultimoUso){
+
+        let tiempoRestante = 180000 - (Date.now() - parseInt(ultimoUso));
+
+        if(tiempoRestante > 0){
+
+            iniciarContador(tiempoRestante);
+            return;
+        }
+    }
+
+    localStorage.setItem("ultimoUso", Date.now());
 
     document.getElementById("sonido").play();
 
     let premio = document.getElementById("premio");
     let rareza = document.getElementById("rareza");
+    let codigo = document.getElementById("codigo");
     let cofre = document.getElementById("cofre");
     let brillo = document.getElementById("brillo");
 
     premio.style.opacity = "0";
     rareza.innerHTML = "";
+    codigo.innerHTML = "";
 
     brillo.innerHTML = "✨✨✨✨✨";
 
@@ -94,25 +117,25 @@ function abrirCofre(){
 
     setTimeout(() => {
 
-        if (suerte < 0.50){
-            premio.innerHTML = "🧪 ¡Has obtenido una Poción!";
-            rareza.innerHTML = "⭐ COMÚN";
+        if (suerte < 0.70){
+            premio.innerHTML = "😅 Sigue participando";
+            rareza.innerHTML = "Gracias por visitar Jostar 3D";
+            codigo.innerHTML = "";
         }
-        else if (suerte < 0.80){
-            premio.innerHTML = "💎 ¡Has encontrado un Rubí Rojo!";
-            rareza.innerHTML = "⭐⭐ RARO";
+        else if (suerte < 0.945){
+            premio.innerHTML = "🎁 ¡Ganaste 5% de descuento!";
+            rareza.innerHTML = "PREMIO";
+            codigo.innerHTML = "J3D-5";
         }
-        else if (suerte < 0.93){
-            premio.innerHTML = "🏹 ¡Has obtenido el Arco del Héroe!";
-            rareza.innerHTML = "⭐⭐⭐ ÉPICO";
-        }
-        else if (suerte < 0.99){
-            premio.innerHTML = "🛡️ ¡Has obtenido el Escudo Hyliano!";
-            rareza.innerHTML = "⭐⭐⭐⭐ ÉPICO";
+        else if (suerte < 0.995){
+            premio.innerHTML = "🎉 ¡Ganaste 10% de descuento!";
+            rareza.innerHTML = "PREMIO";
+            codigo.innerHTML = "J3D-10";
         }
         else{
-            premio.innerHTML = "🗡️ ¡Has obtenido la Espada Maestra!";
-            rareza.innerHTML = "👑 ⭐⭐⭐⭐⭐ LEGENDARIO ⭐⭐⭐⭐⭐";
+            premio.innerHTML = "🏆 ¡GANASTE UNA FIGURA GRATIS!";
+            rareza.innerHTML = "👑 PREMIO LEGENDARIO 👑";
+            codigo.innerHTML = "J3D-GRATIS";
         }
 
         premio.style.opacity = "1";
@@ -122,6 +145,39 @@ function abrirCofre(){
     setTimeout(() => {
         brillo.innerHTML = "";
     }, 7000);
+
+    iniciarContador(180000);
+
+}
+
+function iniciarContador(tiempo){
+
+    clearInterval(intervalo);
+
+    let contador = document.getElementById("contador");
+
+    intervalo = setInterval(() => {
+
+        tiempo -= 1000;
+
+        let minutos = Math.floor(tiempo / 60000);
+        let segundos = Math.floor((tiempo % 60000) / 1000);
+
+        contador.innerHTML =
+        "⏳ Próximo intento en: " +
+        minutos.toString().padStart(2,"0") +
+        ":" +
+        segundos.toString().padStart(2,"0");
+
+        if(tiempo <= 0){
+
+            clearInterval(intervalo);
+
+            contador.innerHTML =
+            "🎉 ¡Ya puedes volver a abrir el cofre!";
+        }
+
+    },1000);
 
 }
 </script>
