@@ -37,7 +37,13 @@ button{
 
 <p>Bienvenido a tu primera experiencia NFC.</p>
 
-<button>Abrir Cofre</button>
+<button onclick="abrirCofre()">Abrir Cofre</button>
 
-</body>
-</html>
+<h2 id="premio"></h2>
+
+<script>
+function abrirCofre(){
+    document.getElementById("premio").innerHTML =
+    "🗡️ ¡Has obtenido la Espada Maestra!";
+}
+</script>
