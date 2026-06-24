@@ -50,6 +50,10 @@ button{
 
 <p>Bienvenido a tu primera experiencia NFC.</p>
 <img id="cofre" src="cofre.png.png" width="300" onclick="abrirCofre()">
+<audio id="sonido">
+    <source src="cofre.mp3" type="audio/mpeg">
+</audio>
+
 <div id="brillo"></div>
 
 <h2 id="premio" style="opacity:0; transition:1s; color:gold;"></h2>
@@ -65,6 +69,7 @@ const premios = [
 ];
 
 function abrirCofre(){
+    document.getElementById("sonido").play();
 
     let premio = document.getElementById("premio");
     let cofre = document.getElementById("cofre");
