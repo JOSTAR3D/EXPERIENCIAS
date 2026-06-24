@@ -12,15 +12,20 @@
     margin:20px auto;
     cursor:pointer;
     transition:0.3s;
-    #brillo{
+}
+
+#brillo{
     font-size:40px;
-    height:50px;#rareza{
+    height:50px;
+}
+
+#rareza{
     color:gold;
     font-size:28px;
     font-weight:bold;
 }
 
-}
+
 
 body{
     background:#111;
@@ -80,7 +85,7 @@ function abrirCofre(){
     let cofre = document.getElementById("cofre");
 
    let rareza = document.getElementById("rareza");
-
+let suerte = Math.random();
 if (suerte < 0.50){
     premio.innerHTML = "🧪 ¡Has obtenido una Poción!";
     rareza.innerHTML = "⭐ COMÚN";
@@ -102,14 +107,7 @@ else{
     rareza.innerHTML = "👑 ⭐⭐⭐⭐⭐ LEGENDARIO ⭐⭐⭐⭐⭐";
 }
 
-   premio.style.opacity = "0";
 
-setTimeout(() => {
-
-    premio.innerHTML = premios[numero];
-    premio.style.opacity = "1";
-
-}, 7000);
 
 document.getElementById("brillo").innerHTML = "✨✨✨✨✨";
 
@@ -124,11 +122,6 @@ setTimeout(() => {
 }, 800);
 
 }
-
-</script>
-
-
-
 </script>
 </body>
 </html>
