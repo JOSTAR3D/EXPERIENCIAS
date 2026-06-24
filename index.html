@@ -70,58 +70,59 @@ button{
 
 <script>
 
-const premios = [
-"🗡️ ¡Has obtenido la Espada Maestra!",
-"🏹 ¡Has obtenido el Arco del Héroe!",
-"🛡️ ¡Has obtenido el Escudo Hyliano!",
-"💎 ¡Has encontrado un Rubí Rojo!",
-"🧪 ¡Has obtenido una Poción!"
-];
-
 function abrirCofre(){
+
     document.getElementById("sonido").play();
 
     let premio = document.getElementById("premio");
+    let rareza = document.getElementById("rareza");
     let cofre = document.getElementById("cofre");
+    let brillo = document.getElementById("brillo");
 
-   let rareza = document.getElementById("rareza");
-let suerte = Math.random();
-if (suerte < 0.50){
-    premio.innerHTML = "🧪 ¡Has obtenido una Poción!";
-    rareza.innerHTML = "⭐ COMÚN";
+    premio.style.opacity = "0";
+    rareza.innerHTML = "";
+
+    brillo.innerHTML = "✨✨✨✨✨";
+
+    cofre.style.transform = "scale(1.15)";
+
+    setTimeout(() => {
+        cofre.style.transform = "scale(1)";
+    }, 300);
+
+    let suerte = Math.random();
+
+    setTimeout(() => {
+
+        if (suerte < 0.50){
+            premio.innerHTML = "🧪 ¡Has obtenido una Poción!";
+            rareza.innerHTML = "⭐ COMÚN";
+        }
+        else if (suerte < 0.80){
+            premio.innerHTML = "💎 ¡Has encontrado un Rubí Rojo!";
+            rareza.innerHTML = "⭐⭐ RARO";
+        }
+        else if (suerte < 0.93){
+            premio.innerHTML = "🏹 ¡Has obtenido el Arco del Héroe!";
+            rareza.innerHTML = "⭐⭐⭐ ÉPICO";
+        }
+        else if (suerte < 0.99){
+            premio.innerHTML = "🛡️ ¡Has obtenido el Escudo Hyliano!";
+            rareza.innerHTML = "⭐⭐⭐⭐ ÉPICO";
+        }
+        else{
+            premio.innerHTML = "🗡️ ¡Has obtenido la Espada Maestra!";
+            rareza.innerHTML = "👑 ⭐⭐⭐⭐⭐ LEGENDARIO ⭐⭐⭐⭐⭐";
+        }
+
+        premio.style.opacity = "1";
+
+    }, 7000);
+
+    setTimeout(() => {
+        brillo.innerHTML = "";
+    }, 7000);
+
 }
-else if (suerte < 0.80){
-    premio.innerHTML = "💎 ¡Has encontrado un Rubí Rojo!";
-    rareza.innerHTML = "⭐⭐ RARO";
-}
-else if (suerte < 0.93){
-    premio.innerHTML = "🏹 ¡Has obtenido el Arco del Héroe!";
-    rareza.innerHTML = "⭐⭐⭐ ÉPICO";
-}
-else if (suerte < 0.99){
-    premio.innerHTML = "🛡️ ¡Has obtenido el Escudo Hyliano!";
-    rareza.innerHTML = "⭐⭐⭐⭐ ÉPICO";
-}
-else{
-    premio.innerHTML = "🗡️ ¡Has obtenido la Espada Maestra!";
-    rareza.innerHTML = "👑 ⭐⭐⭐⭐⭐ LEGENDARIO ⭐⭐⭐⭐⭐";
-}
-
-
-
-document.getElementById("brillo").innerHTML = "✨✨✨✨✨";
-
-cofre.style.transform = "scale(1.15)";
-
-setTimeout(() => {
-    cofre.style.transform = "scale(1)";
-}, 300);
-
-setTimeout(() => {
-    document.getElementById("brillo").innerHTML = "";
-}, 800);
-
-}
-</script>
 </body>
 </html>
