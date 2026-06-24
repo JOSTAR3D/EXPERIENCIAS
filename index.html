@@ -12,6 +12,10 @@
     margin:20px auto;
     cursor:pointer;
     transition:0.3s;
+    #brillo{
+    font-size:40px;
+    height:50px;
+}
 }
 
 body{
@@ -46,6 +50,7 @@ button{
 
 <p>Bienvenido a tu primera experiencia NFC.</p>
 <img id="cofre" src="cofre.png.png" width="300" onclick="abrirCofre()">
+<div id="brillo"></div>
 
 <h2 id="premio" style="opacity:0; transition:1s; color:gold;"></h2>
 
@@ -67,13 +72,19 @@ function abrirCofre(){
     let numero = Math.floor(Math.random() * premios.length);
 
     premio.innerHTML = premios[numero];
-    premio.style.opacity = "1";
+premio.style.opacity = "1";
 
-    cofre.style.transform = "scale(1.15)";
+document.getElementById("brillo").innerHTML = "✨✨✨✨✨";
 
-    setTimeout(() => {
-        cofre.style.transform = "scale(1)";
-    }, 300);
+cofre.style.transform = "scale(1.15)";
+
+setTimeout(() => {
+    cofre.style.transform = "scale(1)";
+}, 300);
+
+setTimeout(() => {
+    document.getElementById("brillo").innerHTML = "";
+}, 800);
 
 }
 
