@@ -32,6 +32,12 @@ button{
     cursor:pointer;
 }
 </style>
+    #cofre{
+    display:block;
+    margin:20px auto;
+    cursor:pointer;
+    transition:0.3s;
+}
 
 </head>
 
@@ -62,9 +68,10 @@ function abrirCofre(){
 
     premio.innerHTML = premios[numero];
 
-    premio.style.opacity = "1";
+    premio.style.opacity = "1";}
+    document.getElementById("cofre").style.transform = "scale(1.15)";
 
-}
+
 
 </script>
 </body>
