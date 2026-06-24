@@ -39,11 +39,15 @@ button{
 
 <button onclick="abrirCofre()">Abrir Cofre</button>
 
-<h2 id="premio"></h2>
+<h2 id="premio" style="opacity:0; transition:1s; color:gold;"></h2>
 
 <script>
 function abrirCofre(){
-    document.getElementById("premio").innerHTML =
-    "🗡️ ¡Has obtenido la Espada Maestra!";
+
+    let premio = document.getElementById("premio");
+
+    premio.innerHTML = "🗡️ ¡Has obtenido la Espada Maestra!";
+
+    premio.style.opacity = "1";
+
 }
-</script>
