@@ -62,13 +62,22 @@ const premios = [
 function abrirCofre(){
 
     let premio = document.getElementById("premio");
+    let cofre = document.getElementById("cofre");
 
     let numero = Math.floor(Math.random() * premios.length);
 
     premio.innerHTML = premios[numero];
-
     premio.style.opacity = "1";
-    document.getElementById("cofre").style.transform = "scale(1.15)";}
+
+    cofre.style.transform = "scale(1.15)";
+
+    setTimeout(() => {
+        cofre.style.transform = "scale(1)";
+    }, 300);
+
+}
+
+</script>
 
 
 
