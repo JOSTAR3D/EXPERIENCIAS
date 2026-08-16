@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8d9e8">
+<title>Yoshi Jostar · Forma de pago</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:#614653;background:linear-gradient(145deg,#fff6fa,#f8d9e8,#fff7fa);min-height:100vh}
+.wrap{max-width:620px;margin:auto;padding:18px 14px 30px}.hero{text-align:center}
+.logo{width:min(300px,76vw);display:block;margin:auto}.logo svg{width:100%;height:auto;display:block;filter:drop-shadow(0 7px 9px rgba(220,40,115,.12))}
+h1{color:#ed287d;font-size:clamp(28px,7vw,40px);margin:0;font-weight:900}.subtitle{color:#ed287d;font-size:18px;font-weight:800;margin:8px 0 22px}
+.card{background:rgba(255,255,255,.94);border-radius:27px;padding:22px;box-shadow:0 10px 30px rgba(210,45,115,.15)}.title{color:#ed287d;font-size:23px;font-weight:900;margin:0 0 16px;text-align:center}
+.field{background:#fff7fa;border:2px solid #ffc3db;border-radius:17px;padding:13px 15px;margin:11px 0}.label{font-size:11px;color:#ed287d;font-weight:900}.value{font-size:18px;font-weight:800;margin-top:5px;word-break:break-word}
+.copy{width:100%;margin-top:7px;padding:11px;border:2px solid #ff9bc4;background:#fff;color:#ed287d;border-radius:13px;font-weight:900}.mp{margin-top:18px;padding:18px;text-align:center;background:#fff;border-radius:22px;box-shadow:0 8px 24px rgba(210,45,115,.12)}
+.mp-icon{font-size:34px}.mp h2{color:#ed287d;font-size:20px;margin:7px 0}.mp p{margin:0 0 13px;line-height:1.4}.pay{width:100%;padding:13px;border:0;border-radius:14px;background:#ed287d;color:#fff;font-weight:900;font-size:15px}
+.note{margin:18px 5px 0;text-align:center;font-size:13px;line-height:1.45;color:#765765}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;background:#614653;color:white;padding:11px 17px;border-radius:30px;font-weight:800;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body><main class="wrap"><header class="hero">
+<div class="logo" aria-label="Yoshi Jostar Accesorios 3D"><svg viewBox="0 0 420 220" role="img"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#f36aa7"/><stop offset="1" stop-color="#ed287d"/></linearGradient></defs><path d="M210 12l24 62 66-4-51 42 19 64-58-34-58 34 19-64-51-42 66 4z" fill="url(#g)"/><circle cx="210" cy="103" r="42" fill="#ffd43f" opacity=".9"/><text x="210" y="178" text-anchor="middle" font-family="Arial" font-weight="900" font-size="34" fill="#ed287d">YOSHI JOSTAR</text><text x="210" y="204" text-anchor="middle" font-family="Arial" font-weight="700" font-size="13" fill="#ed287d">ACCESORIOS 3D</text></svg></div>
+<h1>Forma de pago 💗</h1><p class="subtitle">Yoshi Jostar Accesorios 3D</p></header>
+<section class="card"><h2 class="title">💳 Datos de pago</h2>
+<div class="field"><div class="label">NOMBRE DEL TITULAR</div><div class="value" id="nombre">Joselin Reta</div><button class="copy" onclick="copiar('nombre')">📋 COPIAR NOMBRE</button></div>
+<div class="field"><div class="label">NÚMERO DE TARJETA</div><div class="value" id="tarjeta">PENDIENTE</div><button class="copy" onclick="copiar('tarjeta')">📋 COPIAR TARJETA</button></div>
+<div class="mp"><div class="mp-icon">💙</div><h2>Mercado Pago</h2><p>También puedes realizar tu pago mediante Mercado Pago.</p><button class="pay" onclick="mercadoPago()">PAGAR CON MERCADO PAGO</button></div></section>
+<p class="note">Verifica los datos antes de realizar tu pago. 💗<br>Gracias por apoyar nuestro pequeño negocio.</p></main><div class="toast" id="toast"></div>
+<script>
+var datos={nombre:"Joselin Reta",tarjeta:"",mercadoPago:""};
+function copiar(id){var t=document.getElementById(id).textContent.trim();if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(function(){avisar("Copiado ✓");},function(){fallback(t);});}else fallback(t)}
+function fallback(t){var a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy");avisar("Copiado ✓");}catch(e){avisar("No se pudo copiar")}document.body.removeChild(a)}
+function mercadoPago(){if(datos.mercadoPago)window.location.href=datos.mercadoPago;else avisar("Enlace de Mercado Pago pendiente")}
+function avisar(t){var x=document.getElementById("toast");x.textContent=t;x.className="toast show";setTimeout(function(){x.className="toast"},1600)}
+</script></body></html>
