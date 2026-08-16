@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#451e7d">
+
+  <title>Jostar | Catálogo</title>
+
+  <style>
+    :root {
+      --morado: #451e7d;
+      --morado-claro: #6938a4;
+      --fondo: #faf8fc;
+      --texto: #27242b;
+      --gris: #777;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contenedor {
+      width: 100%;
+      max-width: 520px;
+      padding: 25px;
+    }
+
+    .tarjeta {
+      background: white;
+      border-radius: 28px;
+      padding: 38px 25px 28px;
+      text-align: center;
+      box-shadow: 0 14px 45px rgba(69, 30, 125, 0.12);
+    }
+
+    .logo {
+      color: var(--morado);
+      font-size: 58px;
+      font-weight: 800;
+      font-style: italic;
+      letter-spacing: -5px;
+      line-height: 1;
+    }
+
+    .estrella {
+      font-size: 31px;
+      vertical-align: top;
+      margin-right: 3px;
+    }
+
+    .eslogan {
+      margin: 13px 0 32px;
+      color: var(--gris);
+      font-size: 15px;
+    }
+
+    h1 {
+      color: var(--morado);
+      font-size: 27px;
+      margin: 0 0 10px;
+    }
+
+    .descripcion {
+      color: #666;
+      margin: 0 0 28px;
+      line-height: 1.5;
+    }
+
+    .botones {
+      display: grid;
+      gap: 13px;
+    }
+
+    .boton {
+      display: block;
+      text-decoration: none;
+      padding: 17px 18px;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .boton:active {
+      transform: scale(0.97);
+    }
+
+    .principal {
+      background: var(--morado);
+      color: white;
+    }
+
+    .secundario {
+      background: #f0ebf6;
+      color: var(--morado);
+    }
+
+    .nota {
+      margin-top: 25px;
+      color: #888;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .pie {
+      margin-top: 25px;
+      color: #999;
+      font-size: 12px;
+    }
+
+    .cargando {
+      width: 30px;
+      height: 30px;
+      margin: 22px auto 0;
+      border: 4px solid #eee;
+      border-top-color: var(--morado);
+      border-radius: 50%;
+      animation: girar 0.9s linear infinite;
+    }
+
+    @keyframes girar {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contenedor">
+
+    <main class="tarjeta">
+
+      <div class="logo">
+        <span class="estrella">★</span>jostar
+      </div>
+
+      <div class="eslogan">
+        Soluciones que impulsan tu industria
+      </div>
+
+      <h1>Catálogo de productos</h1>
+
+      <p class="descripcion">
+        Lubricantes y soluciones para mantenimiento industrial.
+      </p>
+
+      <div class="botones">
+
+        <a
+          class="boton principal"
+          href="catalogo-jostar.pdf"
+        >
+          📘 Ver catálogo de productos
+        </a>
+
+        <a
+          class="boton secundario"
+          href="mailto:Javier_Martinez_Cabrera@outlook.com"
+        >
+          ✉ Solicitar información
+        </a>
+
+      </div>
+
+      <p class="nota">
+        Acceso mediante NFC.<br>
+        Acerca tu teléfono para conocer las soluciones de Jostar.
+      </p>
+
+      <div class="cargando"></div>
+
+      <div class="pie">
+        Jostar · Monterrey, Nuevo León, México
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+
+    /*
+      Apertura automática del catálogo.
+
+      El botón permanece disponible por si el navegador
+      bloquea la apertura automática.
+    */
+
+    setTimeout(function() {
+
+      window.location.href = "catalogo-jostar.pdf";
+
+    }, 1200);
+
+  </script>
+
+</body>
+</html>
